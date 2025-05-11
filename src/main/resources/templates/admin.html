@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Admin Page</title>
+</head>
+<body>
+<h1>Админка</h1>
+<p th:text="'Имя пользователя: ' + ${admin.username}"></p>
+<p th:text="'Email: ' + ${admin.email}"></p>
+<a th:href="@{/logout}">Выйти</a>
+</body>
+</html>
