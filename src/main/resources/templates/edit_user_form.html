@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+    <meta charset="UTF-8">
     <title>Редактировать пользователя</title>
 </head>
 <body>
@@ -9,17 +10,38 @@
 <form th:action="@{/admin/update}" method="post">
     <input type="hidden" name="id" th:value="${user.id}" />
 
-    Username: <input type="text" name="username" th:value="${user.username}" /><br>
-    Password: <input type="password" name="password" /><br>
-    First name: <input type="text" name="firstName" th:value="${user.firstName}" /><br>
-    Last name: <input type="text" name="lastName" th:value="${user.lastName}" /><br>
-    Email: <input type="text" name="email" th:value="${user.email}" /><br>
+    <label>Username:
+        <input type="text" name="username" th:value="${user.username}" />
+    </label><br>
+
+    <label>Password:
+        <input type="password" name="password" placeholder="Введите новый пароль" />
+    </label><br>
+
+    <label>First name:
+        <input type="text" name="firstName" th:value="${user.firstName}" />
+    </label><br>
+
+    <label>Last name:
+        <input type="text" name="lastName" th:value="${user.lastName}" />
+    </label><br>
+
+    <label>Email:
+        <input type="text" name="email" th:value="${user.email}" />
+    </label><br>
 
     Roles:<br>
-    <input type="checkbox" name="roles" value="ROLE_ADMIN"
-           th:checked="${user.roles.?[name == 'ROLE_ADMIN'] != null}"/> ADMIN<br>
-    <input type="checkbox" name="roles" value="ROLE_USER"
-           th:checked="${user.roles.?[name == 'ROLE_USER'] != null}"/> USER<br>
+    <label>
+        <input type="checkbox" name="roles" value="ROLE_ADMIN"
+               th:checked="${user.roles.?[name == 'ROLE_ADMIN'].size() > 0}" />
+        ADMIN
+    </label><br>
+
+    <label>
+        <input type="checkbox" name="roles" value="ROLE_USER"
+               th:checked="${user.roles.?[name == 'ROLE_USER'].size() > 0}" />
+        USER
+    </label><br><br>
 
     <button type="submit">Сохранить</button>
 </form>
