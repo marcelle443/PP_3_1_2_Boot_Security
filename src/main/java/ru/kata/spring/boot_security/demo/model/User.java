@@ -38,8 +38,6 @@ public class User implements UserDetails {
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
 
-    @ManyToMany(mappedBy = "roles")
-    private Set<User> users;
 
     public User() {
 
@@ -123,12 +121,12 @@ public class User implements UserDetails {
         this.email = email;
     }
 
-    public void setPassword(String email) {
-        this.email = password;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public void setUsername(String email) {
-        this.email = username;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
         public Set<Role> getRoles () {
