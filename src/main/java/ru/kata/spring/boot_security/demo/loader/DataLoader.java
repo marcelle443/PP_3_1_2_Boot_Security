@@ -10,9 +10,7 @@ import ru.kata.spring.boot_security.demo.model.User;
 import ru.kata.spring.boot_security.demo.repository.RoleRepository;
 import ru.kata.spring.boot_security.demo.repository.UserRepository;
 
-
 import javax.annotation.PostConstruct;
-import java.beans.Transient;
 import java.util.Set;
 
 
@@ -60,6 +58,7 @@ public class DataLoader {
             admin.setPassword(passwordEncoder.encode("admin"));
             admin.setFirstName("Peter");
             admin.setLastName("Parker");
+            admin.setAge(35);
             admin.setEmail("pparker@gmail.com");
             admin.setRoles(Set.of(adminRole));
             userRepository.save(admin);
@@ -70,6 +69,7 @@ public class DataLoader {
             user2.setPassword(passwordEncoder.encode("user"));
             user2.setFirstName("Sarah");
             user2.setLastName("Connor");
+            user2.setAge(45);
             user2.setEmail("ddayconnor@gmail.com");
             user2.setRoles(Set.of(userRole));
             userRepository.save(user2);

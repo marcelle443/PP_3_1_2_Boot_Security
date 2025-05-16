@@ -19,4 +19,8 @@ public interface UserService {
 
     User getUserById(Long id);
 
+    void createUser(String username, String password, String firstName, String lastName, Integer age, String email, List<String> roles);
+
+    void updateUser(Long id, String username, String password, String firstName, String lastName, Integer age, String email, List<String> roles);
+
 }
